@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Test post"
+date:   2025-11-20 09:41:33 -0700
+categories: jekyll update
+---
+    # എന്റെ ബ്ലോഗ് പോസ്റ്റ് (My Blog Post)
+
+    ഇതൊരു മലയാളം ബ്ലോഗ് പോസ്റ്റാണ്. (This is a Malayalam blog post.)
