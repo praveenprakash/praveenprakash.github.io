@@ -1,18 +1,14 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Why
+permalink: /why/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Why a blog in the age of social platforms where people don't have an attention span beyond 3 seconds..?
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Well, becuase this is clarity..., not noise - for me. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I write this for me, if anyone happen to fumble up on this, they are more than welcome to read or ignore. 
 
-
-[jekyll-organization]: https://github.com/jekyll
+Thanks,
+Praveen
