@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Why
 permalink: /why/
 ---
 
