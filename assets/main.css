@@ -1,18 +1,189 @@
 ---
 ---
+
+/* 1) Keep all of minima's base styles */
 @import "minima";
 
-/* Add this at the end: */
+/* 2) Pull in Biscuit-ish fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+/* 3) Biscuit-style base look: background, text, spacing */
+
+html, body {
+  background: #f7f3ec; /* warm, Biscuit-like tone */
+}
+
+body {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #4a4a4a;
+}
+
+/* Center column a bit narrower and lifted */
+.wrapper {
+  max-width: 48rem;
+  padding: 0 1.75rem;
+  margin: 3rem auto 4rem;
+}
+
+/* Give the main content a card-like feel */
+.page-content {
+  background: #fcfbf8;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+  padding: 3rem 2.25rem 4rem;
+}
+
+/* 4) Typography similar to Biscuit */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  color: #33302a;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+/* 5) Links – warm accent, subtle underline */
+
+a {
+  color: #c05b4d;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(192, 91, 77, 0.25);
+  transition: color 0.15s ease, border-bottom-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+a:hover {
+  color: #8f3f33;
+  border-bottom-color: rgba(143, 63, 51, 0.45);
+}
+
+/* 6) Post list styling to match your infinite-scroll feed */
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-item {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #e6dfd3;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-title {
+  font-size: 2rem;
+  margin: 0 0 0.25rem;
+}
+
+.post-meta {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a08864;
+  margin-bottom: 1.5rem;
+}
+
+.post-content {
+  font-size: 1rem;
+}
+
+.post-content p {
+  margin-bottom: 1.1rem;
+}
+
+.post-content blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid #e0d1ba;
+  color: #6a5c48;
+  font-style: italic;
+}
+
+.post-content code {
+  background: #f1ebe1;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+}
+
+/* 7) Headers/navigation to be a bit softer */
+
+.site-header {
+  border-bottom: none;
+  background: transparent;
+  padding-top: 1.5rem;
+}
+
+.site-title {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.site-title, .site-title:visited {
+  color: #5a4b36;
+  border-bottom: none;
+}
+
+.site-nav .page-link {
+  color: #7a6750;
+  font-size: 0.9rem;
+}
+
+/* 8) Footer */
+
+.site-footer {
+  border-top: none;
+  color: #a39a8d;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* 9) Infinite scroll spinner (from earlier setup) */
+
 .infinite-spinner {
   width: 40px;
   height: 40px;
-  margin: 3rem auto;
+  margin: 3rem auto 1rem;
   border-radius: 50%;
-  border: 4px solid #ddd;
-  border-top-color: #555;
-  animation: spin 0.8s linear infinite;
+  border: 4px solid #e5ddcf;
+  border-top-color: #b3936a;
+  animation: biscuit-spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+@keyframes biscuit-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
