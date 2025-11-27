@@ -1,13 +1,15 @@
 ---
 layout: page
-permalink: /why/
+title: Know Me
+permalink: /about/
 ---
 
-Why a blog in the age of social platforms where people don't have an attention span beyond 3 seconds..?
+Nothing special, just a mere delutional mortal hallucinating his rants would become literaray marvels, but also realizes that it will just be another crumble in the eternal abyss of empty words. 
 
-Well, becuase this is clarity..., not noise - for me. 
+Yet, a small corner for me to find some clarity by writing down the unarticulatable ramblings in my head.., neither to be burried on the senseless social media graveyard Or to be fancied by any pretentious intelligence. If you happen to stumble up on here for any reason, and find my insanity enjoyable, I appreciate the attention, you are more than welcome to visit again.
 
-I write this for me, if anyone happen to fumble up on this, they are more than welcome to read or ignore. 
+My non-verbal omnipresence in this blip of time during the ride through the empty vastness can be felt at below places too: 
+
 
 Thanks,
 
