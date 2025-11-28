@@ -37,6 +37,7 @@ plugins:
 markdown: kramdown
 kramdown:
   input: GFM # Optional: Enable GitHub Flavored Markdown
+  parse_block_html: true
   hard_wrap: false # Optional: Disable hard line breaks
   syntax_highlighter: rouge # Optional: Specify syntax highlighter
   syntax_highlighter_opts: # Optional: Options for the syntax highlighter

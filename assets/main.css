@@ -1,15 +1,20 @@
 ---
 ---
 
-/* 1) Keep all of minima's base styles */
+/* 1) Base: import minima */
 @import "minima";
 
-/* 2) Pull in Biscuit-ish fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap');
+/* Hint browsers we support both schemes (helps some UIs) */
+:root {
+  color-scheme: light dark;
+}
 
-/* 3) Biscuit-style base look: background, text, spacing */
+/* ===========================
+   LIGHT THEME (default)
+   =========================== */
 
-html, body {
+html,
+body {
   background: #f7f3ec; /* warm, Biscuit-like tone */
 }
 
@@ -21,14 +26,14 @@ body {
   color: #4a4a4a;
 }
 
-/* Center column a bit narrower and lifted */
+/* Center column */
 .wrapper {
   max-width: 48rem;
   padding: 0 1.75rem;
   margin: 3rem auto 4rem;
 }
 
-/* Give the main content a card-like feel */
+/* Card-like main content */
 .page-content {
   background: #fcfbf8;
   border-radius: 4px;
@@ -36,9 +41,14 @@ body {
   padding: 3rem 2.25rem 4rem;
 }
 
-/* 4) Typography similar to Biscuit */
+/* Typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Playfair Display", "Times New Roman", serif;
   color: #33302a;
   letter-spacing: 0.03em;
@@ -67,7 +77,7 @@ p {
   margin: 0 0 1.1rem;
 }
 
-/* 5) Links – warm accent, subtle underline */
+/* Links */
 
 a {
   color: #c05b4d;
@@ -82,7 +92,7 @@ a:hover {
   border-bottom-color: rgba(143, 63, 51, 0.45);
 }
 
-/* 6) Post list styling to match your infinite-scroll feed */
+/* Post list (home, infinite scroll feed) */
 
 .post-list {
   list-style: none;
@@ -135,7 +145,7 @@ a:hover {
   border-radius: 3px;
 }
 
-/* 7) Headers/navigation to be a bit softer */
+/* Header / nav */
 
 .site-header {
   border-bottom: none;
@@ -151,7 +161,8 @@ a:hover {
   text-transform: uppercase;
 }
 
-.site-title, .site-title:visited {
+.site-title,
+.site-title:visited {
   color: #5a4b36;
   border-bottom: none;
 }
@@ -161,16 +172,45 @@ a:hover {
   font-size: 0.9rem;
 }
 
-/* 8) Footer */
+/* Footer bar: subscribe + copyright on a line */
 
-.site-footer {
-  border-top: none;
-  color: #a39a8d;
-  font-size: 0.85rem;
-  margin-top: 2rem;
+.site-footer .wrapper.footer-bar {
+  max-width: 48rem;
+  margin: 3rem auto 2rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
-/* 9) Infinite scroll spinner (from earlier setup) */
+.rss-subscribe {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1rem;
+  color: #c05b4d;
+  text-decoration: none;
+  border-bottom: none;
+  font-weight: 600;
+}
+
+.rss-subscribe:hover {
+  color: #8f3f33;
+}
+
+.rss-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.footer-meta {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: inherit;
+  text-align: right;
+}
+
+/* Infinite scroll spinner */
 
 .infinite-spinner {
   width: 40px;
@@ -186,4 +226,117 @@ a:hover {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* About social icons on one line */
+
+.about-social-links {
+  margin-left: 0.5rem;
+  display: inline-flex;
+  gap: 0.4rem;
+  vertical-align: middle;
+}
+
+.about-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.about-icon-svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* ===================================
+   DARK THEME via .dark-mode class
+   =================================== */
+
+html.dark-mode,
+html.dark-mode body {
+  background: #0f0f11;
+}
+
+html.dark-mode body {
+  color: #e4e0d8;
+}
+
+html.dark-mode .page-content {
+  background: #18181b;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+}
+
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6 {
+  color: #f6f1e6;
+}
+
+html.dark-mode a {
+  color: #ffb58a;
+  border-bottom-color: rgba(255, 181, 138, 0.3);
+}
+
+html.dark-mode a:hover {
+  color: #ffd2ab;
+  border-bottom-color: rgba(255, 210, 171, 0.6);
+}
+
+html.dark-mode .post-item {
+  border-bottom-color: #2b2b31;
+}
+
+html.dark-mode .post-meta {
+  color: #d2b88f;
+}
+
+html.dark-mode .post-content blockquote {
+  border-left-color: #5a4630;
+  color: #e7d8c1;
+}
+
+html.dark-mode .post-content code {
+  background: #24242a;
+}
+
+html.dark-mode .site-title,
+html.dark-mode .site-title:visited {
+  color: #f1e7d4;
+}
+
+html.dark-mode .site-nav .page-link {
+  color: #d1c4ae;
+}
+
+html.dark-mode .site-footer {
+  color: #a9a29a;
+}
+
+html.dark-mode .infinite-spinner {
+  border-color: #34343c;
+  border-top-color: #f5b97f;
+}
+
+/* Dark mode header tweaks */
+html.dark-mode .site-title,
+html.dark-mode .site-title:visited {
+  color: #f0e1c4;   /* a bit brighter, still soft */
+}
+
+/* "Know Me" and other nav links */
+html.dark-mode .site-nav .page-link {
+  color: #e0d2b8;   /* softly visible, not blinding */
+}
+
+/* Post text a bit dimmer so it doesn't glow */
+html.dark-mode .post-content,
+html.dark-mode .post-content p {
+  color: #d0c9bf;
 }
