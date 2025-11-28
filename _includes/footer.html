@@ -1,113 +1,156 @@
 <footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+    <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
-  <div
-    class="wrapper footer-bar"
-    style="
-      display:flex;
-      align-items:center;
-      white-space:nowrap;
-    "
-  >
-    <a class="rss-subscribe"
-       href="{{ "/feed.xml" | relative_url }}"
-       aria-label="RSS Feed">
-        <svg class="svg-icon orange">
-            <use xlink:href="/assets/minima-social-icons.svg#rss">
-            </use>
-        </svg>
-      <span>Subscribe</span>
-    </a>
+    <div
+        class="wrapper footer-bar"
+        style="
+        display:flex;
+        align-items:center;
+        white-space:nowrap;
+        "
+    >
+        <a class="rss-subscribe"
+        href="{{ "/feed.xml" | relative_url }}"
+        aria-label="RSS Feed">
+            <svg class="svg-icon orange">
+                <use xlink:href="/assets/minima-social-icons.svg#rss">
+                </use>
+            </svg>
+        <span>Subscribe</span>
+        </a>
 
-    <div class="footer-meta" style="margin-left:auto; text-align:right;">
-      &copy; {{ site.time | date: "%Y" }}
-      {{ site.title | default: site.github.repository_owner }}.
-      All rights reserved.
+        <div class="footer-meta" style="margin-left:auto; text-align:right;">
+        &copy; {{ site.time | date: "%Y" }}
+        {{ site.title | default: site.github.repository_owner }}.
+        All rights reserved.
+        </div>
     </div>
-  </div>
 
-<script>
-  (function () {
-    function applyScheme() {
-      var prefersDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      var root        = document.documentElement;
-      var body        = document.body;
-      var card        = document.querySelector(".page-content");
-      var title       = document.querySelector(".site-title");
-      var navLinks    = document.querySelectorAll(".site-nav .page-link");
-      var translateButtons = document.querySelectorAll(".translate-button");
-
-      if (prefersDark) {
-        root.classList.add("dark-mode");
-
-        // Softer dark background + text
-        body.style.backgroundColor = "#141417";
-        body.style.color = "#d3cec4";
-
-        if (card) {
-          card.style.backgroundColor = "#202127";
-          card.style.color = "";
+    <script>
+    (function () {
+        function setUtterancesTheme(prefersDark) {
+        var iframe = document.querySelector("iframe.utterances-frame");
+        if (!iframe) {
+            setTimeout(function () {
+            var iframeRetry = document.querySelector("iframe.utterances-frame");
+            if (!iframeRetry) return;
+            var themeRetry = prefersDark ? "github-dark-orange" : "github-light";
+            iframeRetry.contentWindow.postMessage(
+                { type: "set-theme", theme: themeRetry },
+                "https://utteranc.es"
+            );
+            }, 800);
+            return;
         }
 
-        // Header title (Praveen Prakash)
-        if (title) {
-          title.style.color = "#f0e1c4";
+        var theme = prefersDark ? "github-dark-orange" : "github-light";
+        iframe.contentWindow.postMessage(
+            { type: "set-theme", theme: theme },
+            "https://utteranc.es"
+        );
         }
 
-        // Nav links ("Know Me", etc.)
-        navLinks.forEach(function (a) {
-          a.style.color = "#e0d2b8";
-        });
+        function applyScheme() {
+        var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-        // 🔥 Translate buttons: force pill + text color in dark mode
-        translateButtons.forEach(function (btn) {
-          btn.style.backgroundColor = "#38332c";
-          btn.style.color = "#f3e5c6";
-          btn.style.borderBottom = "none";
-          btn.style.textDecoration = "none";
-        });
+        var root         = document.documentElement;
+        var body         = document.body;
+        var card         = document.querySelector(".page-content");
+        var title        = document.querySelector(".site-title");
+        var navLinks     = document.querySelectorAll(".site-nav .page-link");
+        var commentsLinks = document.querySelectorAll(".comments-link");
+        var subscribeLinks = document.querySelectorAll(".rss-subscribe");
 
-      } else {
-        root.classList.remove("dark-mode");
+        if (prefersDark) {
+            root.classList.add("dark-mode");
 
-        // Reset body/card
-        body.style.backgroundColor = "";
-        body.style.color = "";
+            // Softer dark background + text
+            body.style.backgroundColor = "#141417";
+            body.style.color = "#d3cec4";
 
-        if (card) {
-          card.style.backgroundColor = "";
-          card.style.color = "";
+            if (card) {
+            card.style.backgroundColor = "#202127";
+            card.style.color = "";
+            }
+
+            // Header title (Praveen Prakash)
+            if (title) {
+            title.style.color = "#f0e1c4";
+            }
+
+            // Nav links ("Know Me", etc.)
+            navLinks.forEach(function (a) {
+            a.style.color = "#e0d2b8";
+            });
+
+            // 🔥 Comments pill in dark mode
+            commentsLinks.forEach(function (btn) {
+            btn.style.backgroundColor = "#38332c";
+            btn.style.color = "#f3e5c6";
+            btn.style.borderBottom = "none";
+            btn.style.textDecoration = "none";
+            });
+
+            // 🔥 Subscribe link in dark mode
+            subscribeLinks.forEach(function (link) {
+            link.style.color = "#ffb58a";
+            link.style.borderBottom = "none";
+            link.style.textDecoration = "none";
+            });
+
+            // Utterances theme in dark mode
+            setUtterancesTheme(true);
+
+        } else {
+            root.classList.remove("dark-mode");
+
+            // Reset body/card
+            body.style.backgroundColor = "";
+            body.style.color = "";
+
+            if (card) {
+            card.style.backgroundColor = "";
+            card.style.color = "";
+            }
+
+            // Reset header title & nav links to theme defaults
+            if (title) {
+            title.style.color = "";
+            }
+
+            navLinks.forEach(function (a) {
+            a.style.color = "";
+            });
+
+            // Reset comments pill to CSS-defined (light theme) style
+            commentsLinks.forEach(function (btn) {
+            btn.style.backgroundColor = "";
+            btn.style.color = "";
+            btn.style.borderBottom = "";
+            btn.style.textDecoration = "";
+            });
+
+            // Reset subscribe link to CSS/light theme
+            subscribeLinks.forEach(function (link) {
+            link.style.color = "";
+            link.style.borderBottom = "";
+            link.style.textDecoration = "";
+            });
+
+            // Utterances theme in light mode
+            setUtterancesTheme(false);
+        }
         }
 
-        // Reset header title & nav links
-        if (title) {
-          title.style.color = "";
+        applyScheme();
+
+        if (window.matchMedia) {
+        window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", applyScheme);
         }
-
-        navLinks.forEach(function (a) {
-          a.style.color = "";
-        });
-
-        // Reset translate buttons to CSS-defined (light theme) style
-        translateButtons.forEach(function (btn) {
-          btn.style.backgroundColor = "";
-          btn.style.color = "";
-          btn.style.borderBottom = "";
-          btn.style.textDecoration = "";
-        });
-      }
-    }
-
-    applyScheme();
-
-    if (window.matchMedia) {
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", applyScheme);
-    }
-  })();
-</script>
+    })();
+    </script>
 </footer>

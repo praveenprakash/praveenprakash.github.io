@@ -145,42 +145,6 @@ a:hover {
   border-radius: 3px;
 }
 
-/* Translate button above post */
-.translate-bar {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.translate-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.9rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background: #f2e5d4;
-  color: #7a4f2c;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-.translate-button:hover {
-  background: #e7d5c1;
-  color: #5a3517;
-}
-
-/* 🔥 Force colors in dark mode so it doesn't disappear */
-html.dark-mode .translate-button,
-html.dark-mode .translate-button:visited {
-  background: #38332c;
-  color: #f3e5c6 !important;
-  border-bottom: none;
-}
-
-html.dark-mode .translate-button:hover {
-  background: #4a453d;
-  color: #a65224 !important;
-}
 
 /* Header / nav */
 
@@ -377,3 +341,41 @@ html.dark-mode .post-content,
 html.dark-mode .post-content p {
   color: #d0c9bf;
 }
+
+/* Post footer actions (Comments link) */
+
+.post-footer-actions {
+  margin-top: 0.75rem;
+}
+
+.comments-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: #f2e5d4;
+  color: #7a4f2c;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.comments-link:hover {
+  background: #e7d5c1;
+  color: #5a3517;
+}
+
+/* Dark mode version */
+html.dark-mode .comments-link,
+html.dark-mode .comments-link:visited {
+  background: #38332c;
+  color: #f3e5c6;
+  border-bottom: none;
+}
+
+html.dark-mode .comments-link:hover {
+  background: #4a453d;
+  color: #fff4dd;
+}
+
