@@ -33,11 +33,12 @@
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-      var root  = document.documentElement;
-      var body  = document.body;
-      var card  = document.querySelector(".page-content");
-      var title = document.querySelector(".site-title");
-      var navLinks = document.querySelectorAll(".site-nav .page-link");
+      var root        = document.documentElement;
+      var body        = document.body;
+      var card        = document.querySelector(".page-content");
+      var title       = document.querySelector(".site-title");
+      var navLinks    = document.querySelectorAll(".site-nav .page-link");
+      var translateButtons = document.querySelectorAll(".translate-button");
 
       if (prefersDark) {
         root.classList.add("dark-mode");
@@ -51,14 +52,22 @@
           card.style.color = "";
         }
 
-        // Header title color (Praveen Prakash)
+        // Header title (Praveen Prakash)
         if (title) {
           title.style.color = "#f0e1c4";
         }
 
-        // Nav links color ("Know Me", etc.)
+        // Nav links ("Know Me", etc.)
         navLinks.forEach(function (a) {
           a.style.color = "#e0d2b8";
+        });
+
+        // 🔥 Translate buttons: force pill + text color in dark mode
+        translateButtons.forEach(function (btn) {
+          btn.style.backgroundColor = "#38332c";
+          btn.style.color = "#f3e5c6";
+          btn.style.borderBottom = "none";
+          btn.style.textDecoration = "none";
         });
 
       } else {
@@ -73,13 +82,21 @@
           card.style.color = "";
         }
 
-        // Reset header title & nav links to theme defaults
+        // Reset header title & nav links
         if (title) {
           title.style.color = "";
         }
 
         navLinks.forEach(function (a) {
           a.style.color = "";
+        });
+
+        // Reset translate buttons to CSS-defined (light theme) style
+        translateButtons.forEach(function (btn) {
+          btn.style.backgroundColor = "";
+          btn.style.color = "";
+          btn.style.borderBottom = "";
+          btn.style.textDecoration = "";
         });
       }
     }

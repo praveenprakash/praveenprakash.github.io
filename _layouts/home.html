@@ -3,35 +3,91 @@ layout: default
 ---
 
 <div class="home">
+  <ul class="post-list" id="post-list">
+    {% assign posts = site.posts %}
+    {% for post in posts %}
+      <li class="post-item" data-index="{{ forloop.index0 }}">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <span class="post-meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+        </span>
 
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+        {%- if post.lang == "ml" -%}
+          <p class="translate-bar">
+            <a
+              class="translate-button"
+              href="https://translate.google.com/translate?sl=ml&tl=en&u={{ post.url | absolute_url | uri_escape }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              🌐 Translate to English
+            </a>
+          </p>
+        {%- endif -%}
 
-  {{ content }}
+        <div class="post-content">
+          {{ post.content }}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
 
-  {%- assign posts = site.posts -%}
-
-  {%- if posts.size > 0 -%}
-    <ul class="post-list">
-      {%- for post in posts limit: 10 -%}
-        <li class="post-item">
-          <h2 class="post-title">{{ post.title }}</h2>
-          <span class="post-meta">{{ post.date | date_to_string }}</span>
-
-          <div class="post-content">
-            {{ post.content }}
-          </div>
-        </li>
-      {%- endfor -%}
-    </ul>
-
-    <!-- Required for Infinite Jekyll -->
-    <div class="infinite-spinner"></div>
-  {%- endif -%}
-
-  <!-- Load scripts only on the home page -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="{{ '/js/infinite-jekyll.js' | relative_url }}"></script>
-
+  <div id="infinite-spinner" class="infinite-spinner" style="display:none;"></div>
 </div>
+
+<script>
+  (function () {
+    const items = Array.from(document.querySelectorAll(".post-item"));
+    if (!items.length) return;
+
+    const spinner = document.getElementById("infinite-spinner");
+
+    const batchSize = 5; // how many posts to reveal at a time
+    let visibleCount = Math.min(batchSize, items.length);
+
+    // Hide all except first batch
+    items.forEach((item, index) => {
+      if (index >= visibleCount) {
+        item.style.display = "none";
+      }
+    });
+
+    function revealNextBatch() {
+      const nextVisible = Math.min(visibleCount + batchSize, items.length);
+      for (let i = visibleCount; i < nextVisible; i++) {
+        items[i].style.display = "";
+      }
+      visibleCount = nextVisible;
+
+      if (visibleCount >= items.length && spinner) {
+        spinner.style.display = "none";
+      }
+    }
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              observer.unobserve(entry.target);
+              if (spinner) spinner.style.display = "block";
+
+              setTimeout(() => {
+                revealNextBatch();
+                const lastVisible = items[visibleCount - 1];
+                if (lastVisible) observer.observe(lastVisible);
+              }, 250);
+            }
+          });
+        },
+        { rootMargin: "200px 0px 0px 0px" }
+      );
+
+      const lastVisible = items[visibleCount - 1];
+      if (lastVisible) observer.observe(lastVisible);
+    } else {
+      // Fallback: show all if IntersectionObserver isn't available
+      items.forEach((item) => (item.style.display = ""));
+    }
+  })();
+</script>

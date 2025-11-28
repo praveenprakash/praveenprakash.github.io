@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">
+      {{ page.title | escape }}
+    </h1>
+
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+    </p>
+
+    <!-- DEBUG: this should show on Malayalam posts -->
+    <p style="color: crimson; font-size: 0.85rem;">
+      [DEBUG] Malayalam layout active · lang={{ page.lang }}
+    </p>
+
+    <!-- Translate button (always for this layout) -->
+    <p class="translate-bar">
+      <a
+        class="translate-button"
+        href="https://translate.google.com/translate?sl=ml&tl=en&u={{ page.url | absolute_url | uri_escape }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🌐 Translate to English
+      </a>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+</article>
