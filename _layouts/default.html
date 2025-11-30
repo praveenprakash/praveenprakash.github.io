@@ -3,42 +3,47 @@ layout: nil
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: 'en' }}">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>
       {% if page.title %}
-        {{ page.title | escape }} · {{ site.title | escape }}
+        {{ page.title }} | {{ site.title }}
       {% else %}
-        {{ site.title | escape }}
+        {{ site.title }}
       {% endif %}
     </title>
 
-    <!-- Favicon light/dark -->
-    <link rel="icon" type="image/png"
-          href="{{ '/assets/images/favicon_light.png' | relative_url }}"
-          media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png"
-          href="{{ '/assets/images/favicon_dark.png' | relative_url }}"
-          media="(prefers-color-scheme: dark)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Minima styles -->
+    {%- seo -%}
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ '/assets/images/favicon.png' | relative_url }}"
+    >
+
+    <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-
-    <!-- Feed -->
-    {% if site.feed %}
-      {% feed_meta %}
-    {% endif %}
-
   </head>
 
   <body>
+    <header class="site-header" role="banner">
+      <div class="wrapper">
+        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
+          {{ site.title | escape }}
+        </a>
 
-    <!-- Header -->
-    {% include header.html %}
+        {% if site.pages %}
+          <nav class="site-nav">
+            <a class="page-link" href="{{ '/about/' | relative_url }}">Know Me</a>
+          </nav>
+        {% endif %}
+      </div>
+    </header>
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
@@ -46,8 +51,6 @@ layout: nil
       </div>
     </main>
 
-    <!-- Footer -->
     {% include footer.html %}
-
   </body>
 </html>
