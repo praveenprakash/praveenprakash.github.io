@@ -26,9 +26,9 @@ body {
   color: #4a4a4a;
 }
 
-/* Center column */
+/* Center column – WIDENED so video & posts don't feel like tiny cards */
 .wrapper {
-  max-width: 48rem;
+  max-width: 60rem;        /* was 48rem – this is the big visual change */
   padding: 0 1.75rem;
   margin: 3rem auto 4rem;
 }
@@ -109,7 +109,7 @@ a:hover {
   border-bottom: none;
 }
 
-/* Base post title style (list + posts) – will be fine-tuned below */
+/* Base post title style */
 .post-title {
   font-size: 1.45rem;
   margin-bottom: 0.4rem;
@@ -147,6 +147,33 @@ a:hover {
   border-radius: 3px;
 }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin-bottom: 1.5em; /* Optional: adds spacing below the video */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* As a safety net, enlarge any YouTube iframe even without wrapper */
+.post-content iframe[src*="youtube.com"],
+.post-content iframe[src*="youtu.be"] {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+
 /* Header / nav */
 
 .site-header {
@@ -177,7 +204,7 @@ a:hover {
 /* Footer bar: subscribe + copyright on a line */
 
 .site-footer .wrapper.footer-bar {
-  max-width: 48rem;
+  max-width: 60rem;
   margin: 3rem auto 2rem;
   padding: 0 1rem;
   display: flex;
@@ -276,7 +303,7 @@ html.dark-mode h1,
 html.dark-mode h2,
 html.dark-mode h3,
 html.dark-mode h4,
-html.dark-mode h5,
+html-dark-mode h5,
 html.dark-mode h6 {
   color: #f6f1e6;
 }
@@ -378,29 +405,4 @@ html.dark-mode .comments-link:visited {
 html.dark-mode .comments-link:hover {
   background: #4a453d;
   color: #fff4dd;
-}
-
-/* ============================================
-   FINAL OVERRIDE – CONSISTENT POST TITLE SIZES
-   ============================================ */
-
-/* Titles inside full post pages */
-.post-header h1.post-title {
-  font-size: 1.35rem !important;
-  line-height: 1.35;
-  margin-bottom: 0.6rem;
-}
-
-/* Titles on the home infinite-scroll feed */
-.post-list .post-title,
-h2.post-title {
-  font-size: 1.25rem !important;
-  line-height: 1.3;
-  margin-bottom: 0.4rem;
-}
-
-/* Generic safety override (covers unusual layouts) */
-.post-title {
-  font-size: 1.3rem !important;
-  line-height: 1.32;
 }
