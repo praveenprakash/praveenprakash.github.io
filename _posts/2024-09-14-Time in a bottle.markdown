@@ -3,7 +3,8 @@ layout: post
 title: Time in a bottle
 ---
 
-Time flies so fast, time has to be frozen or saved in a bottle.
+Empty nest is real and for sure it feels empty.<br/>
+Time flies so fast, has to be saved in a bottle.
 
 <div class="video-container">
   <iframe 
