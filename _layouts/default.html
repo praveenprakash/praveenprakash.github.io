@@ -30,6 +30,18 @@ layout: nil
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+
+    {% if jekyll.environment == "production" %}
+      <!-- Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-591NG132P2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-591NG132P2');
+      </script>
+    {% endif %}
   </head>
 
   <body>
