@@ -3,7 +3,7 @@ layout: post
 title: Time in a bottle
 ---
 
-Time flies so fast, has to be saved in a bottle.
+Time flies so fast, emptying the nest.
 
 <div class="video-container">
   <iframe 
