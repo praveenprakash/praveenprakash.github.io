@@ -33,4 +33,4 @@ Now, for our farmer who used to get a hair cut giving 2 KGs of Rice, can’t do 
 
 All the farmer wanted was a hair cut, and the barber wanted was some rice to feed his family. Alas.., cashless society was there for sure… once upon a time.
 ​
-By the way, the illiterate and sun dried miner still crawls up his grave digging for stuff that glitters in the dark which is taken away by suit wearing, cigar smoking merchant exchanging worn out notes to the miner. He then sells it to other suit wearing, perfuming smelling men who buy them as ornaments for their flamboyant bimbos to feel worthy so that they would bed them for every piece. And we all live in peace.
+By the way, the illiterate and sun dried miner still crawls up his grave digging for stuff that glitters in the dark which is taken away by suit wearing, cigar smoking merchant exchanging worn out notes to the miner. He then sells it to other suit wearing, perfuming smelling men who buy them as ornaments for their flamboyant bimbos to feel worthy so that they would love them for every piece. And we all live in peace.
