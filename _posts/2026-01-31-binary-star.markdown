@@ -4,7 +4,7 @@ title: "Binary Star"
 --- 
 
 Drifting through the endless cosmos,<br>
-staying course planned to nowhere.<br> 
+staying the course on voyage to nowhere.<br> 
 Then you felt a sudden jolt inside<br>
 On stealing glances at a passerby.<br>
 
