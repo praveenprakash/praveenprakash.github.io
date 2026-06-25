@@ -15,7 +15,7 @@ changing course in a sharp hard over.<br>
 
 At the whim of time, your orbits lock,<br>
 and the pull grows stronger, heavier,<br>
-wanting to crash into them and fuse.<br>
+desparate to crash in and fuse.<br>
 
 The pull becomes a reckless tango,<br>
 your ecstasy tightens to an euphoric spin,<br>
