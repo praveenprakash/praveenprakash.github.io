@@ -18,7 +18,7 @@ and the pull grows stronger, heavier,<br>
 desparate to crash in and fuse.<br>
 
 The pull becomes a reckless tango,<br>
-your ecstasy tightens to an euphoric spin,<br>
+ecstasy peaks to an euphoric spin,<br>
 only to be cast away from their hold.<br>
 
 Waking from the dizzying vortex,<br>
@@ -30,7 +30,7 @@ That reeling whirl shifted your polarity,<br>
 freeing you from their charm.<br>
 
 Now you drift again<br>
-into the endless vastness of time and space,<br>
+into the endless vastness of unknown,<br>
 hoping to be caught in another cosmic pull,<br>
 stable enough to become a binary star.
 
